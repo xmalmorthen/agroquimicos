@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F562DC5F-3C61-4BE0-9740-425DED364E4B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CAA</RootNamespace>
+    <AssemblyName>CAA</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v12.2, Version=12.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v12.2.Core, Version=12.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v12.2, Version=12.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v12.2, Version=12.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v12.2, Version=12.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v12.2, Version=12.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\visualStyles.cs" />
+    <Compile Include="Models\DataBases\bdCAA.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdCAA.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBases\bdCAA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdCAA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBases\bdCAA.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdCAA.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBases\caConcentraciones.cs">
+      <DependentUpon>bdCAA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBases\caConcentracionesProducto.cs">
+      <DependentUpon>bdCAA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBases\caControl.cs">
+      <DependentUpon>bdCAA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBases\caDosis.cs">
+      <DependentUpon>bdCAA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBases\caGruposQuimicos.cs">
+      <DependentUpon>bdCAA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBases\caIngredientesActivos.cs">
+      <DependentUpon>bdCAA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBases\caProductos.cs">
+      <DependentUpon>bdCAA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBases\caTiposProductos.cs">
+      <DependentUpon>bdCAA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBases\caUnidadesMedida.cs">
+      <DependentUpon>bdCAA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\frmStatus.cs" />
+    <Compile Include="Views\frmCaTipoProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmCaTipoProductos.Designer.cs">
+      <DependentUpon>frmCaTipoProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmBase.Designer.cs">
+      <DependentUpon>frmBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\UserControls\ucBotoneraCRUD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\ucBotoneraCRUD.Designer.cs">
+      <DependentUpon>ucBotoneraCRUD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\ucMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\ucMenu.Designer.cs">
+      <DependentUpon>ucMenu.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Views\frmCaTipoProductos.resx">
+      <DependentUpon>frmCaTipoProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmBase.resx">
+      <DependentUpon>frmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\UserControls\ucBotoneraCRUD.resx">
+      <DependentUpon>ucBotoneraCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\ucMenu.resx">
+      <DependentUpon>ucMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Models\DataBases\bdCAA.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>bdCAA.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\DataBases\bdCAA.edmx.diagram">
+      <DependentUpon>bdCAA.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\CAA.Models.DataBases.caTiposProductos.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\metroframework-modern-ui\MetroFramework.Design\MetroFramework.Design.csproj">
+      <Project>{7316584d-9a16-4280-a8ab-6d45198c6e4d}</Project>
+      <Name>MetroFramework.Design</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\metroframework-modern-ui\MetroFramework.Fonts\MetroFramework.Fonts.csproj">
+      <Project>{5a2fcae8-c2fa-41bd-90ea-16103ea07b26}</Project>
+      <Name>MetroFramework.Fonts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\metroframework-modern-ui\MetroFramework\MetroFramework.csproj">
+      <Project>{bb41ac8b-cbed-4387-a7e0-4567edb3f57f}</Project>
+      <Name>MetroFramework %28Utils\MetroFramework\MetroFramework%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utils\DAL\DAL.csproj">
+      <Project>{cc48ec1c-146b-461a-a330-84463ebbe219}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1467745446_calendar_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\DataBases\bdCAA.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>bdCAA.edmx</DependentUpon>
+      <LastGenOutput>bdCAA.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataBases\bdCAA.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>bdCAA.edmx</DependentUpon>
+      <LastGenOutput>bdCAA.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\1467857621_save.png" />
+    <None Include="Resources\1467857565_delete.png" />
+    <None Include="Resources\1467857580_checkmark.png" />
+    <None Include="Resources\1467857631_checkbox_unchecked.png" />
+    <None Include="Resources\1467857605_trash.png" />
+    <None Include="Resources\1467857488_doc_edit.png" />
+    <None Include="Resources\1467857531_folder_plus.png" />
+    <None Include="Resources\1467756853_cog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

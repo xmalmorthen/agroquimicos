@@ -1,0 +1,708 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BDCAAModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="BDCAAModelStoreContainer">
+          <EntitySet Name="caConcentraciones" EntityType="BDCAAModel.Store.caConcentraciones" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="caConcentracionesProducto" EntityType="BDCAAModel.Store.caConcentracionesProducto" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="caControl" EntityType="BDCAAModel.Store.caControl" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="caDosis" EntityType="BDCAAModel.Store.caDosis" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="caGruposQuimicos" EntityType="BDCAAModel.Store.caGruposQuimicos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="caIngredientesActivos" EntityType="BDCAAModel.Store.caIngredientesActivos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="caProductos" EntityType="BDCAAModel.Store.caProductos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="caTiposProductos" EntityType="BDCAAModel.Store.caTiposProductos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="caUnidadesMedida" EntityType="BDCAAModel.Store.caUnidadesMedida" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_caConcentraciones_caUnidadesMedida" Association="BDCAAModel.Store.FK_caConcentraciones_caUnidadesMedida">
+            <End Role="caUnidadesMedida" EntitySet="caUnidadesMedida" />
+            <End Role="caConcentraciones" EntitySet="caConcentraciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caConcentracionesProducto_caUnidadesMedida" Association="BDCAAModel.Store.FK_caConcentracionesProducto_caUnidadesMedida">
+            <End Role="caUnidadesMedida" EntitySet="caUnidadesMedida" />
+            <End Role="caConcentracionesProducto" EntitySet="caConcentracionesProducto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caDosis_caUnidadesMedida" Association="BDCAAModel.Store.FK_caDosis_caUnidadesMedida">
+            <End Role="caUnidadesMedida" EntitySet="caUnidadesMedida" />
+            <End Role="caDosis" EntitySet="caDosis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caIngredientesActivos_caConcentraciones" Association="BDCAAModel.Store.FK_caIngredientesActivos_caConcentraciones">
+            <End Role="caConcentraciones" EntitySet="caConcentraciones" />
+            <End Role="caIngredientesActivos" EntitySet="caIngredientesActivos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caProductos_caConcentracionesProducto" Association="BDCAAModel.Store.FK_caProductos_caConcentracionesProducto">
+            <End Role="caConcentracionesProducto" EntitySet="caConcentracionesProducto" />
+            <End Role="caProductos" EntitySet="caProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caProductos_caControl" Association="BDCAAModel.Store.FK_caProductos_caControl">
+            <End Role="caControl" EntitySet="caControl" />
+            <End Role="caProductos" EntitySet="caProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caProductos_caDosis" Association="BDCAAModel.Store.FK_caProductos_caDosis">
+            <End Role="caDosis" EntitySet="caDosis" />
+            <End Role="caProductos" EntitySet="caProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caProductos_caGruposQuimicos" Association="BDCAAModel.Store.FK_caProductos_caGruposQuimicos">
+            <End Role="caGruposQuimicos" EntitySet="caGruposQuimicos" />
+            <End Role="caProductos" EntitySet="caProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caProductos_caIngredientesActivos" Association="BDCAAModel.Store.FK_caProductos_caIngredientesActivos">
+            <End Role="caIngredientesActivos" EntitySet="caIngredientesActivos" />
+            <End Role="caProductos" EntitySet="caProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caProductos_caTipoProducto" Association="BDCAAModel.Store.FK_caProductos_caTipoProducto">
+            <End Role="caTiposProductos" EntitySet="caTiposProductos" />
+            <End Role="caProductos" EntitySet="caProductos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="caConcentraciones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Concentracion" Type="float" Nullable="false" />
+          <Property Name="idUnidadMedida" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fIns" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="fAct" Type="datetime" />
+        </EntityType>
+        <EntityType Name="caConcentracionesProducto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Concentracion" Type="float" Nullable="false" />
+          <Property Name="idUnidadMedida" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fIns" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="fAct" Type="datetime" />
+        </EntityType>
+        <EntityType Name="caControl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Descripcion" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="fIns" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="fAct" Type="datetime" />
+        </EntityType>
+        <EntityType Name="caDosis">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Dosis" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="idUnidadMedida" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fIns" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="fAct" Type="datetime" />
+        </EntityType>
+        <EntityType Name="caGruposQuimicos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GrupoQuimico" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fIns" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="fAct" Type="datetime" />
+        </EntityType>
+        <EntityType Name="caIngredientesActivos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IngredienteActivo" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="idConcentracion" Type="int" />
+          <Property Name="Descripcion" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="fIns" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="fAct" Type="datetime" />
+        </EntityType>
+        <EntityType Name="caProductos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idTipoProducto" Type="int" Nullable="false" />
+          <Property Name="NombreComercial" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="idIngredienteActivo" Type="int" />
+          <Property Name="idGrupoQuimico" Type="int" />
+          <Property Name="idDosis" Type="int" />
+          <Property Name="idConcentracionProducto" Type="int" />
+          <Property Name="idControl" Type="int" />
+          <Property Name="fIns" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="fAct" Type="datetime" />
+        </EntityType>
+        <EntityType Name="caTiposProductos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TipoProducto" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fIns" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="fAct" Type="datetime" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="caUnidadesMedida">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UnidadMedida" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fIns" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="fAct" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_caConcentraciones_caUnidadesMedida">
+          <End Role="caUnidadesMedida" Type="BDCAAModel.Store.caUnidadesMedida" Multiplicity="1" />
+          <End Role="caConcentraciones" Type="BDCAAModel.Store.caConcentraciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caUnidadesMedida">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caConcentraciones">
+              <PropertyRef Name="idUnidadMedida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caConcentracionesProducto_caUnidadesMedida">
+          <End Role="caUnidadesMedida" Type="BDCAAModel.Store.caUnidadesMedida" Multiplicity="1" />
+          <End Role="caConcentracionesProducto" Type="BDCAAModel.Store.caConcentracionesProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caUnidadesMedida">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caConcentracionesProducto">
+              <PropertyRef Name="idUnidadMedida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caDosis_caUnidadesMedida">
+          <End Role="caUnidadesMedida" Type="BDCAAModel.Store.caUnidadesMedida" Multiplicity="1" />
+          <End Role="caDosis" Type="BDCAAModel.Store.caDosis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caUnidadesMedida">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caDosis">
+              <PropertyRef Name="idUnidadMedida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caIngredientesActivos_caConcentraciones">
+          <End Role="caConcentraciones" Type="BDCAAModel.Store.caConcentraciones" Multiplicity="0..1" />
+          <End Role="caIngredientesActivos" Type="BDCAAModel.Store.caIngredientesActivos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caConcentraciones">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caIngredientesActivos">
+              <PropertyRef Name="idConcentracion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caProductos_caConcentracionesProducto">
+          <End Role="caConcentracionesProducto" Type="BDCAAModel.Store.caConcentracionesProducto" Multiplicity="0..1" />
+          <End Role="caProductos" Type="BDCAAModel.Store.caProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caConcentracionesProducto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caProductos">
+              <PropertyRef Name="idConcentracionProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caProductos_caControl">
+          <End Role="caControl" Type="BDCAAModel.Store.caControl" Multiplicity="0..1" />
+          <End Role="caProductos" Type="BDCAAModel.Store.caProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caControl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caProductos">
+              <PropertyRef Name="idControl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caProductos_caDosis">
+          <End Role="caDosis" Type="BDCAAModel.Store.caDosis" Multiplicity="0..1" />
+          <End Role="caProductos" Type="BDCAAModel.Store.caProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caDosis">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caProductos">
+              <PropertyRef Name="idDosis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caProductos_caGruposQuimicos">
+          <End Role="caGruposQuimicos" Type="BDCAAModel.Store.caGruposQuimicos" Multiplicity="0..1" />
+          <End Role="caProductos" Type="BDCAAModel.Store.caProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caGruposQuimicos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caProductos">
+              <PropertyRef Name="idGrupoQuimico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caProductos_caIngredientesActivos">
+          <End Role="caIngredientesActivos" Type="BDCAAModel.Store.caIngredientesActivos" Multiplicity="0..1" />
+          <End Role="caProductos" Type="BDCAAModel.Store.caProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caIngredientesActivos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caProductos">
+              <PropertyRef Name="idIngredienteActivo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caProductos_caTipoProducto">
+          <End Role="caTiposProductos" Type="BDCAAModel.Store.caTiposProductos" Multiplicity="1" />
+          <End Role="caProductos" Type="BDCAAModel.Store.caProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caTiposProductos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caProductos">
+              <PropertyRef Name="idTipoProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BDCAAModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="bdCAAEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="caConcentraciones" EntityType="BDCAAModel.caConcentraciones" />
+          <EntitySet Name="caConcentracionesProducto" EntityType="BDCAAModel.caConcentracionesProducto" />
+          <EntitySet Name="caControl" EntityType="BDCAAModel.caControl" />
+          <EntitySet Name="caDosis" EntityType="BDCAAModel.caDosis" />
+          <EntitySet Name="caGruposQuimicos" EntityType="BDCAAModel.caGruposQuimicos" />
+          <EntitySet Name="caIngredientesActivos" EntityType="BDCAAModel.caIngredientesActivos" />
+          <EntitySet Name="caProductos" EntityType="BDCAAModel.caProductos" />
+          <EntitySet Name="caTiposProductos" EntityType="BDCAAModel.caTiposProductos" />
+          <EntitySet Name="caUnidadesMedida" EntityType="BDCAAModel.caUnidadesMedida" />
+          <AssociationSet Name="FK_caConcentraciones_caUnidadesMedida" Association="BDCAAModel.FK_caConcentraciones_caUnidadesMedida">
+            <End Role="caUnidadesMedida" EntitySet="caUnidadesMedida" />
+            <End Role="caConcentraciones" EntitySet="caConcentraciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caIngredientesActivos_caConcentraciones" Association="BDCAAModel.FK_caIngredientesActivos_caConcentraciones">
+            <End Role="caConcentraciones" EntitySet="caConcentraciones" />
+            <End Role="caIngredientesActivos" EntitySet="caIngredientesActivos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caConcentracionesProducto_caUnidadesMedida" Association="BDCAAModel.FK_caConcentracionesProducto_caUnidadesMedida">
+            <End Role="caUnidadesMedida" EntitySet="caUnidadesMedida" />
+            <End Role="caConcentracionesProducto" EntitySet="caConcentracionesProducto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caProductos_caConcentracionesProducto" Association="BDCAAModel.FK_caProductos_caConcentracionesProducto">
+            <End Role="caConcentracionesProducto" EntitySet="caConcentracionesProducto" />
+            <End Role="caProductos" EntitySet="caProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caProductos_caControl" Association="BDCAAModel.FK_caProductos_caControl">
+            <End Role="caControl" EntitySet="caControl" />
+            <End Role="caProductos" EntitySet="caProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caDosis_caUnidadesMedida" Association="BDCAAModel.FK_caDosis_caUnidadesMedida">
+            <End Role="caUnidadesMedida" EntitySet="caUnidadesMedida" />
+            <End Role="caDosis" EntitySet="caDosis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caProductos_caDosis" Association="BDCAAModel.FK_caProductos_caDosis">
+            <End Role="caDosis" EntitySet="caDosis" />
+            <End Role="caProductos" EntitySet="caProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caProductos_caGruposQuimicos" Association="BDCAAModel.FK_caProductos_caGruposQuimicos">
+            <End Role="caGruposQuimicos" EntitySet="caGruposQuimicos" />
+            <End Role="caProductos" EntitySet="caProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caProductos_caIngredientesActivos" Association="BDCAAModel.FK_caProductos_caIngredientesActivos">
+            <End Role="caIngredientesActivos" EntitySet="caIngredientesActivos" />
+            <End Role="caProductos" EntitySet="caProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caProductos_caTipoProducto" Association="BDCAAModel.FK_caProductos_caTipoProducto">
+            <End Role="caTiposProductos" EntitySet="caTiposProductos" />
+            <End Role="caProductos" EntitySet="caProductos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="caConcentraciones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Concentracion" Type="Double" Nullable="false" />
+          <Property Name="idUnidadMedida" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="fIns" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="fAct" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="caUnidadesMedida" Relationship="BDCAAModel.FK_caConcentraciones_caUnidadesMedida" FromRole="caConcentraciones" ToRole="caUnidadesMedida" />
+          <NavigationProperty Name="caIngredientesActivos" Relationship="BDCAAModel.FK_caIngredientesActivos_caConcentraciones" FromRole="caConcentraciones" ToRole="caIngredientesActivos" />
+        </EntityType>
+        <EntityType Name="caConcentracionesProducto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Concentracion" Type="Double" Nullable="false" />
+          <Property Name="idUnidadMedida" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="fIns" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="fAct" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="caUnidadesMedida" Relationship="BDCAAModel.FK_caConcentracionesProducto_caUnidadesMedida" FromRole="caConcentracionesProducto" ToRole="caUnidadesMedida" />
+          <NavigationProperty Name="caProductos" Relationship="BDCAAModel.FK_caProductos_caConcentracionesProducto" FromRole="caConcentracionesProducto" ToRole="caProductos" />
+        </EntityType>
+        <EntityType Name="caControl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="fIns" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="fAct" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="caProductos" Relationship="BDCAAModel.FK_caProductos_caControl" FromRole="caControl" ToRole="caProductos" />
+        </EntityType>
+        <EntityType Name="caDosis">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Dosis" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="idUnidadMedida" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="fIns" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="fAct" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="caUnidadesMedida" Relationship="BDCAAModel.FK_caDosis_caUnidadesMedida" FromRole="caDosis" ToRole="caUnidadesMedida" />
+          <NavigationProperty Name="caProductos" Relationship="BDCAAModel.FK_caProductos_caDosis" FromRole="caDosis" ToRole="caProductos" />
+        </EntityType>
+        <EntityType Name="caGruposQuimicos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="GrupoQuimico" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="fIns" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="fAct" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="caProductos" Relationship="BDCAAModel.FK_caProductos_caGruposQuimicos" FromRole="caGruposQuimicos" ToRole="caProductos" />
+        </EntityType>
+        <EntityType Name="caIngredientesActivos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IngredienteActivo" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="idConcentracion" Type="Int32" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="fIns" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="fAct" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="caConcentraciones" Relationship="BDCAAModel.FK_caIngredientesActivos_caConcentraciones" FromRole="caIngredientesActivos" ToRole="caConcentraciones" />
+          <NavigationProperty Name="caProductos" Relationship="BDCAAModel.FK_caProductos_caIngredientesActivos" FromRole="caIngredientesActivos" ToRole="caProductos" />
+        </EntityType>
+        <EntityType Name="caProductos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="idTipoProducto" Type="Int32" Nullable="false" />
+          <Property Name="NombreComercial" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="idIngredienteActivo" Type="Int32" />
+          <Property Name="idGrupoQuimico" Type="Int32" />
+          <Property Name="idDosis" Type="Int32" />
+          <Property Name="idConcentracionProducto" Type="Int32" />
+          <Property Name="idControl" Type="Int32" />
+          <Property Name="fIns" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="fAct" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="caConcentracionesProducto" Relationship="BDCAAModel.FK_caProductos_caConcentracionesProducto" FromRole="caProductos" ToRole="caConcentracionesProducto" />
+          <NavigationProperty Name="caControl" Relationship="BDCAAModel.FK_caProductos_caControl" FromRole="caProductos" ToRole="caControl" />
+          <NavigationProperty Name="caDosis" Relationship="BDCAAModel.FK_caProductos_caDosis" FromRole="caProductos" ToRole="caDosis" />
+          <NavigationProperty Name="caGruposQuimicos" Relationship="BDCAAModel.FK_caProductos_caGruposQuimicos" FromRole="caProductos" ToRole="caGruposQuimicos" />
+          <NavigationProperty Name="caIngredientesActivos" Relationship="BDCAAModel.FK_caProductos_caIngredientesActivos" FromRole="caProductos" ToRole="caIngredientesActivos" />
+          <NavigationProperty Name="caTiposProductos" Relationship="BDCAAModel.FK_caProductos_caTipoProducto" FromRole="caProductos" ToRole="caTiposProductos" />
+        </EntityType>
+        <EntityType Name="caTiposProductos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoProducto" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="fIns" Type="DateTime" Precision="3" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="fAct" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="caProductos" Relationship="BDCAAModel.FK_caProductos_caTipoProducto" FromRole="caTiposProductos" ToRole="caProductos" />
+          <Property Type="Boolean" Name="isActive" Nullable="false" />
+        </EntityType>
+        <EntityType Name="caUnidadesMedida">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UnidadMedida" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="fIns" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="fAct" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="caConcentraciones" Relationship="BDCAAModel.FK_caConcentraciones_caUnidadesMedida" FromRole="caUnidadesMedida" ToRole="caConcentraciones" />
+          <NavigationProperty Name="caConcentracionesProducto" Relationship="BDCAAModel.FK_caConcentracionesProducto_caUnidadesMedida" FromRole="caUnidadesMedida" ToRole="caConcentracionesProducto" />
+          <NavigationProperty Name="caDosis" Relationship="BDCAAModel.FK_caDosis_caUnidadesMedida" FromRole="caUnidadesMedida" ToRole="caDosis" />
+        </EntityType>
+        <Association Name="FK_caConcentraciones_caUnidadesMedida">
+          <End Role="caUnidadesMedida" Type="BDCAAModel.caUnidadesMedida" Multiplicity="1" />
+          <End Role="caConcentraciones" Type="BDCAAModel.caConcentraciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caUnidadesMedida">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caConcentraciones">
+              <PropertyRef Name="idUnidadMedida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caIngredientesActivos_caConcentraciones">
+          <End Role="caConcentraciones" Type="BDCAAModel.caConcentraciones" Multiplicity="0..1" />
+          <End Role="caIngredientesActivos" Type="BDCAAModel.caIngredientesActivos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caConcentraciones">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caIngredientesActivos">
+              <PropertyRef Name="idConcentracion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caConcentracionesProducto_caUnidadesMedida">
+          <End Role="caUnidadesMedida" Type="BDCAAModel.caUnidadesMedida" Multiplicity="1" />
+          <End Role="caConcentracionesProducto" Type="BDCAAModel.caConcentracionesProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caUnidadesMedida">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caConcentracionesProducto">
+              <PropertyRef Name="idUnidadMedida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caProductos_caConcentracionesProducto">
+          <End Role="caConcentracionesProducto" Type="BDCAAModel.caConcentracionesProducto" Multiplicity="0..1" />
+          <End Role="caProductos" Type="BDCAAModel.caProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caConcentracionesProducto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caProductos">
+              <PropertyRef Name="idConcentracionProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caProductos_caControl">
+          <End Role="caControl" Type="BDCAAModel.caControl" Multiplicity="0..1" />
+          <End Role="caProductos" Type="BDCAAModel.caProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caControl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caProductos">
+              <PropertyRef Name="idControl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caDosis_caUnidadesMedida">
+          <End Role="caUnidadesMedida" Type="BDCAAModel.caUnidadesMedida" Multiplicity="1" />
+          <End Role="caDosis" Type="BDCAAModel.caDosis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caUnidadesMedida">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caDosis">
+              <PropertyRef Name="idUnidadMedida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caProductos_caDosis">
+          <End Role="caDosis" Type="BDCAAModel.caDosis" Multiplicity="0..1" />
+          <End Role="caProductos" Type="BDCAAModel.caProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caDosis">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caProductos">
+              <PropertyRef Name="idDosis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caProductos_caGruposQuimicos">
+          <End Role="caGruposQuimicos" Type="BDCAAModel.caGruposQuimicos" Multiplicity="0..1" />
+          <End Role="caProductos" Type="BDCAAModel.caProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caGruposQuimicos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caProductos">
+              <PropertyRef Name="idGrupoQuimico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caProductos_caIngredientesActivos">
+          <End Role="caIngredientesActivos" Type="BDCAAModel.caIngredientesActivos" Multiplicity="0..1" />
+          <End Role="caProductos" Type="BDCAAModel.caProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caIngredientesActivos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caProductos">
+              <PropertyRef Name="idIngredienteActivo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caProductos_caTipoProducto">
+          <End Role="caTiposProductos" Type="BDCAAModel.caTiposProductos" Multiplicity="1" />
+          <End Role="caProductos" Type="BDCAAModel.caProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caTiposProductos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="caProductos">
+              <PropertyRef Name="idTipoProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BDCAAModelStoreContainer" CdmEntityContainer="bdCAAEntities">
+          <EntitySetMapping Name="caConcentraciones">
+            <EntityTypeMapping TypeName="BDCAAModel.caConcentraciones">
+              <MappingFragment StoreEntitySet="caConcentraciones">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Concentracion" ColumnName="Concentracion" />
+                <ScalarProperty Name="idUnidadMedida" ColumnName="idUnidadMedida" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="fIns" ColumnName="fIns" />
+                <ScalarProperty Name="fAct" ColumnName="fAct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="caConcentracionesProducto">
+            <EntityTypeMapping TypeName="BDCAAModel.caConcentracionesProducto">
+              <MappingFragment StoreEntitySet="caConcentracionesProducto">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Concentracion" ColumnName="Concentracion" />
+                <ScalarProperty Name="idUnidadMedida" ColumnName="idUnidadMedida" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="fIns" ColumnName="fIns" />
+                <ScalarProperty Name="fAct" ColumnName="fAct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="caControl">
+            <EntityTypeMapping TypeName="BDCAAModel.caControl">
+              <MappingFragment StoreEntitySet="caControl">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="fIns" ColumnName="fIns" />
+                <ScalarProperty Name="fAct" ColumnName="fAct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="caDosis">
+            <EntityTypeMapping TypeName="BDCAAModel.caDosis">
+              <MappingFragment StoreEntitySet="caDosis">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Dosis" ColumnName="Dosis" />
+                <ScalarProperty Name="idUnidadMedida" ColumnName="idUnidadMedida" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="fIns" ColumnName="fIns" />
+                <ScalarProperty Name="fAct" ColumnName="fAct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="caGruposQuimicos">
+            <EntityTypeMapping TypeName="BDCAAModel.caGruposQuimicos">
+              <MappingFragment StoreEntitySet="caGruposQuimicos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="GrupoQuimico" ColumnName="GrupoQuimico" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="fIns" ColumnName="fIns" />
+                <ScalarProperty Name="fAct" ColumnName="fAct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="caIngredientesActivos">
+            <EntityTypeMapping TypeName="BDCAAModel.caIngredientesActivos">
+              <MappingFragment StoreEntitySet="caIngredientesActivos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="IngredienteActivo" ColumnName="IngredienteActivo" />
+                <ScalarProperty Name="idConcentracion" ColumnName="idConcentracion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="fIns" ColumnName="fIns" />
+                <ScalarProperty Name="fAct" ColumnName="fAct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="caProductos">
+            <EntityTypeMapping TypeName="BDCAAModel.caProductos">
+              <MappingFragment StoreEntitySet="caProductos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idTipoProducto" ColumnName="idTipoProducto" />
+                <ScalarProperty Name="NombreComercial" ColumnName="NombreComercial" />
+                <ScalarProperty Name="idIngredienteActivo" ColumnName="idIngredienteActivo" />
+                <ScalarProperty Name="idGrupoQuimico" ColumnName="idGrupoQuimico" />
+                <ScalarProperty Name="idDosis" ColumnName="idDosis" />
+                <ScalarProperty Name="idConcentracionProducto" ColumnName="idConcentracionProducto" />
+                <ScalarProperty Name="idControl" ColumnName="idControl" />
+                <ScalarProperty Name="fIns" ColumnName="fIns" />
+                <ScalarProperty Name="fAct" ColumnName="fAct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="caTiposProductos">
+            <EntityTypeMapping TypeName="BDCAAModel.caTiposProductos">
+              <MappingFragment StoreEntitySet="caTiposProductos">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TipoProducto" ColumnName="TipoProducto" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="fIns" ColumnName="fIns" />
+                <ScalarProperty Name="fAct" ColumnName="fAct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="caUnidadesMedida">
+            <EntityTypeMapping TypeName="BDCAAModel.caUnidadesMedida">
+              <MappingFragment StoreEntitySet="caUnidadesMedida">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="UnidadMedida" ColumnName="UnidadMedida" />
+                <ScalarProperty Name="fIns" ColumnName="fIns" />
+                <ScalarProperty Name="fAct" ColumnName="fAct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
